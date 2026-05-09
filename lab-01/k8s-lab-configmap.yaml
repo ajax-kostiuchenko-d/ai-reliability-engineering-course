@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lab-01-llm-config
+  namespace: sandbox-kostiuchenko
+  labels:
+    course: ai-reliability-engineering
+    lab: lab-01
+data:
+  defaultModel: "gpt-4.1-nano"
+  notes: "Non-secret lab metadata; API keys stay in Secrets only."

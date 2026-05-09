@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+
+# llm:
+#   models:
+#   - name: gpt-4.1-nano
+#     provider: openAI
+#     params:
+#       model: gpt-4.1-nano
+#       apiKey: "$OPENAI_API_KEY"
+
+binds:
+  - port: 4000
+    listeners:
+      - protocol: HTTP
+        routes:
+          - name: openai-default
+            backends:
+              - ai:
+                  name: openai
+                  provider:
+                    openAI:
+                      model: gpt-4.1-nano
+            policies:
+              cors:
+                allowOrigins: ["*"]
+                allowHeaders: ["*"]
+              backendAuth:
+                key: "$OPENAI_API_KEY"

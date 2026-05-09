@@ -1,0 +1,16 @@
+# Apply after: kubectl create secret generic openai-secret -n sandbox-kostiuchenko \
+#   --from-literal=Authorization="Bearer $OPENAI_API_KEY"
+apiVersion: agentgateway.dev/v1alpha1
+kind: AgentgatewayBackend
+metadata:
+  name: openai
+  namespace: sandbox-kostiuchenko
+spec:
+  ai:
+    provider:
+      openai:
+        model: gpt-4.1-nano
+  policies:
+    auth:
+      secretRef:
+        name: openai-secret

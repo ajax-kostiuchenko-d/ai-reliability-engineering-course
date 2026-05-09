@@ -216,3 +216,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Course lab: local overrides and secrets (never commit real keys)
+*.local.yaml
+*.local.yml
+secrets/
+.helm-cache/
+
+# Uncomment to avoid committing large screenshots:
+# lab-01/screenshots/*.png
+# lab-01/screenshots/*.jpg

@@ -1,0 +1,14 @@
+# kagent sends OpenAI-compatible requests to agentgateway internal Service URL.
+# Requires: Secret kagent-openai-key with key OPENAI_API_KEY (see LAB01-experienced-setup-commands.md).
+apiVersion: kagent.dev/v1alpha2
+kind: ModelConfig
+metadata:
+  name: via-agentgateway-openai
+  namespace: sandbox-kostiuchenko
+spec:
+  provider: OpenAI
+  model: gpt-4.1-nano
+  apiKeySecret: kagent-openai-key
+  apiKeySecretKey: OPENAI_API_KEY
+  openAI:
+    baseUrl: "http://agentgateway-proxy.sandbox-kostiuchenko.svc.cluster.local/v1"

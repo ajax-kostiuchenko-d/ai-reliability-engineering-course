@@ -1,0 +1,16 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: openai
+  namespace: sandbox-kostiuchenko
+spec:
+  parentRefs:
+    - name: agentgateway-proxy
+      namespace: sandbox-kostiuchenko
+      sectionName: http
+  rules:
+    - backendRefs:
+        - name: openai
+          namespace: sandbox-kostiuchenko
+          group: agentgateway.dev
+          kind: AgentgatewayBackend
