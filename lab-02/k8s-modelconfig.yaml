@@ -1,0 +1,11 @@
+# Requires Secret kagent-openai-key (see LAB02-beginners-setup.md §5)
+apiVersion: kagent.dev/v1alpha2
+kind: ModelConfig
+metadata:
+  name: lab02-default-openai
+  namespace: kagent
+spec:
+  provider: OpenAI
+  model: gpt-4o-mini
+  apiKeySecret: kagent-openai-key
+  apiKeySecretKey: OPENAI_API_KEY

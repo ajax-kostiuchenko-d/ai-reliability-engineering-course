@@ -7,3 +7,4 @@ Repository for lab work and notes for **AI Reliability Engineering 2.0**.
 | Path                 | Contents                                                                       |
 | -------------------- | ------------------------------------------------------------------------------ |
 | [`lab-01/`](lab-01/) | Lab 1: agentgateway (standalone + Kubernetes), kagent, manifests, and runbooks |
+| [`lab-02/`](lab-02/) | Lab 2: abox (KinD + Flux), MCP server + declarative agent                      |

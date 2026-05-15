@@ -1,0 +1,15 @@
+# Lab 2 — declarative MCP server (fetch tool)
+# https://kagent.dev/docs/kagent/getting-started/first-mcp-tool
+apiVersion: kagent.dev/v1alpha1
+kind: MCPServer
+metadata:
+  name: mcp-website-fetcher
+  namespace: kagent
+spec:
+  deployment:
+    args:
+      - mcp-server-fetch
+    cmd: uvx
+    port: 3000
+  stdioTransport: {}
+  transportType: stdio

@@ -1,0 +1,29 @@
+# Lab 2 — declarative Agent using MCPServer mcp-website-fetcher
+apiVersion: kagent.dev/v1alpha2
+kind: Agent
+metadata:
+  name: lab02-fetch-agent
+  namespace: kagent
+spec:
+  description: Lab 2 agent — fetches webpage contents via MCP fetch tool.
+  type: Declarative
+  declarative:
+    modelConfig: lab02-default-openai
+    systemMessage: |-
+      You're a friendly agent that uses the fetch tool to retrieve webpage contents.
+
+      # Instructions
+      - If the user question is unclear, ask for clarification before running tools
+      - Always be helpful and respond in Markdown
+      - If you cannot help, say so clearly
+
+      # Response format
+      - ALWAYS format your response as Markdown
+      - Summarize what you fetched and key points from the page
+    tools:
+      - type: McpServer
+        mcpServer:
+          name: mcp-website-fetcher
+          kind: MCPServer
+          toolNames:
+            - fetch
