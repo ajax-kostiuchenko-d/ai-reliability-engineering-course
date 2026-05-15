@@ -1,0 +1,9 @@
+# Edit MCP_SVC / MCP_NS after kmcp deploy (kubectl get svc -A | grep lab03)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lab03-agent-config
+  namespace: lab03
+data:
+  GOOGLE_GENAI_USE_VERTEXAI: "FALSE"
+  LAB03_MCP_URL: "http://lab03-mcp-server.kagent.svc.cluster.local:3000/mcp"

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab03-agent
+  namespace: lab03
+  labels:
+    app: lab03-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lab03-agent
+  template:
+    metadata:
+      labels:
+        app: lab03-agent
+    spec:
+      containers:
+        - name: agent
+          image: lab03-agent:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: lab03-agent-config
+            - secretRef:
+                name: lab03-agent-secrets
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10

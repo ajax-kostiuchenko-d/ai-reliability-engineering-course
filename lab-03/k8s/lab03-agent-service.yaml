@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lab03-agent
+  namespace: lab03
+spec:
+  selector:
+    app: lab03-agent
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080

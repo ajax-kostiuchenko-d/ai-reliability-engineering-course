@@ -1,0 +1,7 @@
+lab03-agent-secret.yaml
+k8s/lab03-agent-secret.yaml
+**/lab03-agent/.venv/
+**/lab03-mcp-server/.venv/
+lab03-agent/
+lab03-agent-snippet/.venv/
+lab03-mcp-server/kmcp.yaml
